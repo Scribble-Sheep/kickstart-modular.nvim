@@ -7,12 +7,17 @@ return {
     'shaunsingh/nord.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'nord'
 
       -- You can configure highlights by doing something like:
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = true
+      vim.g.nord_italic = false
+
+      -- Load the colorscheme here. AFTER. YOU CONFIGURE IT.
+      vim.cmd [[colorscheme nord]]
+
       vim.cmd.hi 'Comment gui=none'
     end,
   },
